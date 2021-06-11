@@ -318,6 +318,7 @@ def generate_table(dataframe, max_rows=10):
     ])
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 app.layout = html.Div(children=[
     html.H2(children='IST Central Building - Energy Consumption and Forecasting'),
