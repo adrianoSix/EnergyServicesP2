@@ -15,7 +15,6 @@ IST_meteo_data_2017_2018_2019.csv
 #ENERGY FORECAST OF CENTRAL BUILDING OF IST
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 
 #%%UPLOADING DATA
@@ -39,8 +38,6 @@ df_meteo_raw[df_meteo_raw.columns[0]] = pd.to_datetime(df_meteo_raw[df_meteo_raw
 df_meteo_raw = df_meteo_raw.rename(columns = {"yyyy-mm-dd hh:mm:ss":"Date"})
 meteo = df_meteo_raw.set_index("Date", drop = True) #yyyy-mm-dd hh:mm:ss
 meteo = meteo.resample("H").mean() #resampling meteo data to be consinstent with power consumption data
-
-plt.style.use("bmh")
 
 #concat 2017 and 2018 power consumption years
 central = pd.concat([central2017, central2018])
